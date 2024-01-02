@@ -11,6 +11,10 @@ Wrapper module is using a NonRoot service 'InjectableService' which depends on '
 - - As soon as RootService is initialised, it expects the 'IssueService' is also injected to the env. but 'IssueService' Module is used in WrapperModule, so app when initialising root services, won't find this.
 - - If we move IssueServiceModule to AppModule then exported WrapperModule would miss this service and would cause issue in ShellApp
 
+* In simple words, if your root service depends on module service, it won't work for microfontends. As you would need to add those service module to AppModule.
+* Solutions:
+- - Convert module services to root services OR don't use services having ModuleWithProviders or providedIn:Module. If some configurations needed to be passed in RootServices use injection tokens.
+
 
 ## How to test
 Go to respective folders and 
