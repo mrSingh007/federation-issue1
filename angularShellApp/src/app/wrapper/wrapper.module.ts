@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { InjectableService } from '../issue/injectable.service';
 import { WrapperComponent } from './wrapper.component';
-import { IssueModule } from '../issue/issue.module';
+import { LoggerService } from './logger.service';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-   // IssueModule.forRoot(), //TODO: either using here or in app.module (try commenting one out)
+
     RouterModule.forChild([
       {
         path: '',
@@ -17,6 +16,6 @@ import { IssueModule } from '../issue/issue.module';
       },
     ]),
   ],
-  providers:[InjectableService]
+  providers: [LoggerService],
 })
 export class WrapperModule {}
